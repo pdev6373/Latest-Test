@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 
-const FETCH_ALL_NEWS = gql`
+const FETCH_ALL_CHARACTERS = gql`
   query {
     characters {
       results {
@@ -24,7 +24,7 @@ const FETCH_ALL_NEWS = gql`
 
 export const useFetchAllNews = () => {
   const hasData = () => {
-    const data = JSON.parse(sessionStorage.getItem("ALL_NEWS"));
+    const data = JSON.parse(sessionStorage.getItem("ALL_CHARACTERS"));
     if (data) return data;
 
     return false;
@@ -34,11 +34,11 @@ export const useFetchAllNews = () => {
     const data = hasData();
 
     if (!data) {
-      const { error, loading, data } = useQuery(FETCH_ALL_NEWS);
+      const { error, loading, data } = useQuery(FETCH_ALL_CHARACTERS);
 
       data &&
         sessionStorage.setItem(
-          "ALL_NEWS",
+          "ALL_CHARACTERS",
           JSON.stringify(data?.characters.results)
         );
 

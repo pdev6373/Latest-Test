@@ -1,19 +1,32 @@
+import { useState, useEffect } from "react";
 import { useFetchAllNews } from "../../hooks/graphQl/useFetchAllNews";
 import styles from "./Body.module.css";
 
-export const Body = () => {
+export const Body = ({ search, setFilterCharacters, filterCharacters }) => {
   const { error, loading, data } = useFetchAllNews();
+  const [realData, setRealData] = useState(data);
+
+  useEffect(() => {
+    const newData = data?.filter((data) => {
+      Array.from(data.name.split(" ")).some((item) =>
+        item.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+
+    setRealData(newData);
+    setFilterCharacters(false);
+  }, [filterCharacters]);
 
   return (
     <main className={styles.body}>
       {loading && <div>Loading...</div>}
       {error && <div>Oops something went wrong!...</div>}
 
-      {data &&
-        data.map((item) => {
+      {realData &&
+        realData.map((item) => {
           return (
             <div key={item.id} className={styles.character}>
-              <img src={item.image} className={styles.character} />
+              <img src={item.image} className={styles.characterImage} />
 
               <div className={styles.characterDescription}>
                 <div className={styles.characterDetails}>

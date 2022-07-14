@@ -1,23 +1,27 @@
-import { useState } from "react";
 import styles from "./Search.module.css";
 
-export const Search = () => {
-  const [search, setSearch] = useState("");
-
-  const handleSubmit = () => {};
+export const Search = ({ search, setSearch, setFilterCharacters }) => {
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setFilterCharacters(true);
+  };
 
   return (
     <div className={styles.searchWrapper}>
-      <form className={styles.searchForm} onSubmit={handleSubmit}>
+      <form className={styles.searchForm} onSubmit={handleSearch}>
         <input
           className={styles.search}
           type="text"
-          placeholder="Search, 100,000+ movies"
+          placeholder="Search, 15+ characters"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button type="submit" className={styles.searchButton}>
+        <button
+          type="submit"
+          className={styles.searchButton}
+          onClick={handleSearch}
+        >
           Search
         </button>
       </form>
