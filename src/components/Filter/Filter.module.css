@@ -38,6 +38,7 @@
   flex-grow: 1;
   border: none;
   outline: none;
-  border-radius: 4px;
+  border-radius: 30px;
+  padding-inline: auto;
   min-width: 100px;
 }

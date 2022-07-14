@@ -1,17 +1,26 @@
 import { useState, useEffect } from "react";
-import { useFetchAllNews } from "../../hooks/graphQl/useFetchAllNews";
+import { useFetchAllCharacters } from "../../hooks/graphQl/useFetchAllCharacters";
 import styles from "./Body.module.css";
 
 export const Body = ({ search, setFilterCharacters, filterCharacters }) => {
-  const { error, loading, data } = useFetchAllNews();
+  const { error, loading, data } = useFetchAllCharacters();
   const [realData, setRealData] = useState(data);
 
   useEffect(() => {
     const newData = data?.filter((data) => {
-      Array.from(data.name.split(" ")).some((item) =>
-        item.toLowerCase().includes(search.toLowerCase())
-      );
+      let showItem = false;
+
+      Array.from(data.name.split(" ")).some((item) => {
+        const searchLength = search.length;
+
+        showItem =
+          item.toLowerCase().slice(0, searchLength) === search.toLowerCase();
+      });
+
+      return showItem;
     });
+
+    console.log(newData);
 
     setRealData(newData);
     setFilterCharacters(false);
@@ -20,7 +29,7 @@ export const Body = ({ search, setFilterCharacters, filterCharacters }) => {
   return (
     <main className={styles.body}>
       {loading && <div>Loading...</div>}
-      {error && <div>Oops something went wrong!...</div>}
+      {error && <div>Oops something went wrong!...try again</div>}
 
       {realData &&
         realData.map((item) => {
@@ -36,10 +45,6 @@ export const Body = ({ search, setFilterCharacters, filterCharacters }) => {
                 <div className={styles.characterDetails}>
                   <span>Status</span>
                   <p className={styles.characterTitle}>{item.status}</p>
-                </div>
-                <div className={styles.characterDetails}>
-                  <span>Type</span>
-                  <p className={styles.characterTitle}>{item.type}</p>
                 </div>
                 <div className={styles.characterDetails}>
                   <span>Gender</span>

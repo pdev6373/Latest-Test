@@ -6,7 +6,6 @@ const FETCH_ALL_CHARACTERS = gql`
       results {
         id
         status
-        type
         gender
         origin {
           name
@@ -22,7 +21,7 @@ const FETCH_ALL_CHARACTERS = gql`
   }
 `;
 
-export const useFetchAllNews = () => {
+export const useFetchAllCharacters = () => {
   const hasData = () => {
     const data = JSON.parse(sessionStorage.getItem("ALL_CHARACTERS"));
     if (data) return data;

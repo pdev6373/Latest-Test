@@ -7,17 +7,17 @@ export const Filter = () => {
 
       <div className={styles.filterOptions}>
         <select className={styles.filterSelect}>
-          <option>Name</option>
-          <option>led</option>
-          <option>Pea</option>
+          <option>Dead/Alive</option>
+          <option>Dead</option>
+          <option>Alive</option>
         </select>
         <select className={styles.filterSelect}>
-          <option>Name</option>
-          <option>led</option>
-          <option>Pea</option>
+          <option>Male/Femail</option>
+          <option>Male</option>
+          <option>Female</option>
         </select>
         <select className={styles.filterSelect}>
-          <option>Name</option>
+          <option>Location</option>
           <option>led</option>
           <option>Pea</option>
         </select>
