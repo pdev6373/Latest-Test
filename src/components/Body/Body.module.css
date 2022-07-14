@@ -1,0 +1,47 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding-top: 85px;
+}
+
+.movie {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 1px 5px 0px rgba(200, 153, 44, 0.697);
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+.movie:hover {
+  box-shadow: 2px 1px 7px 3px rgba(200, 153, 44, 0.697);
+  transform: translateY(-3px);
+}
+
+.movieImage {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.movieDescription {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background: #202020;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.movieTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #fff;
+}

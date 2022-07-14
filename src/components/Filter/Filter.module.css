@@ -1,0 +1,43 @@
+.filterWrapper {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 20px;
+  height: 75px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-block: 10px;
+  z-index: 4;
+  background-color: inherit;
+}
+
+.filterText {
+  font-family: cursive;
+  font-family: cursive;
+  flex-shrink: 0;
+  color: #fff;
+  align-self: center;
+}
+
+.filterOptions {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  overflow-x: auto;
+  padding-block: 5px 8px;
+
+  /* flex-grow: 10; */
+}
+
+.filterSelect {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  min-width: 100px;
+}
