@@ -16,31 +16,31 @@ export const Body = () => {
               <img src={item.image} className={styles.character} />
 
               <div className={styles.characterDescription}>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Name</span>
                   <p className={styles.characterTitle}>{item.name}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Status</span>
                   <p className={styles.characterTitle}>{item.status}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Type</span>
                   <p className={styles.characterTitle}>{item.type}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Gender</span>
                   <p className={styles.characterTitle}>{item.gender}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Origin Name</span>
                   <p className={styles.characterTitle}>{item.origin.name}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>Location Name</span>
                   <p className={styles.characterTitle}>{item.location.name}</p>
                 </div>
-                <div>
+                <div className={styles.characterDetails}>
                   <span>created</span>
                   <p className={styles.characterTitle}>{item.created}</p>
                 </div>
